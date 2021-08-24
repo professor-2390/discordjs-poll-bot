@@ -1,0 +1,28 @@
+{
+  "name": "discordjs-poll-bot",
+  "version": "1.0.0",
+  "description": "A discord.js poll bot written in TypeScript.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewtrann5000/discordjs-poll-bot.git"
+  },
+  "author": "andrewtrann5000",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewtrann5000/discordjs-poll-bot/issues"
+  },
+  "homepage": "https://github.com/andrewtrann5000/discordjs-poll-bot#readme",
+  "devDependencies": {
+    "@types/node": "^16.7.1",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "ms": "^2.1.3"
+  }
+}
