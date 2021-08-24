@@ -13,7 +13,7 @@ module.exports = {
     });
     if(options.filter((element) => element !== null).length <= 2) return;
     const pollEmbed = new Discord.MessageEmbed()
-      .setTitle(`**Title: ** ${options[0]}`)
+      .setDescription(`**Title: ** ${options[0]}`)
       .setFooter(`Started by ${message.author.tag}`, message.member.user.displayAvatarURL());
     options.slice(1).forEach((element, value) => {
       pollEmbed.addField(`Option ${value + 1}.)`, `${element}`, true);
@@ -24,10 +24,10 @@ module.exports = {
     });
     setTimeout(async() => {
       const resultsEmbed = new Discord.MessageEmbed()
-        .setTitle(`**Title: ** ${options[0]}`)
+        .setDescription(`**Title: ** ${options[0]}`)
         .setFooter(`Started by ${message.author.tag}`, message.member.user.displayAvatarURL());
       options.slice(1).forEach((element, value) => {
-        resultsEmbed.addField(`${value + 1}.) ${element}`, `${sendPollEmbed.reactions.cache.get(emojis[value]).count - 1}`, true);
+        resultsEmbed.addField(`${value + 1}.) ${element}`, `${sendPollEmbed.reactions.cache.get(emojis[value]).count - 1} vote(s)`, true);
       });
       await sendPollEmbed.edit({embeds: [resultsEmbed]});
     }, ms(time) + (options.slice(1).length * 1000));
