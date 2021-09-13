@@ -3,7 +3,7 @@ import emojis from '../utility/emojis';
 import ms from 'ms';
 module.exports = {
   name: 'poll',
-  run: async(message, args, client) => {
+  run: async(message, args) => {
     const time: string = args[0];
     const options: string[] = args.slice(1).join(' ').split('+');
     if(!/^[0-9]*s?|m|h|d|w/g.test(time) || !time) return;
