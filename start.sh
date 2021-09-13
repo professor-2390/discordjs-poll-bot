@@ -1,3 +1,3 @@
 npm run build
 node .
-read
+read -r
