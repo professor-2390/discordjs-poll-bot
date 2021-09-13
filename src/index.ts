@@ -18,10 +18,10 @@ client.login(process.env.token)
     console.error(err);
   });
 fs.readdirSync(path.join(__dirname, 'events')).forEach((file) => {
-  const event = require(`./events/${file}`);
+  import event = require(`./events/${file}`);
   client.on(event.name, event.run.bind(null, client));
 });
 fs.readdirSync(path.join(__dirname, 'commands')).forEach((file) => {
-  const command = require(`./commands/${file}`);
+  import command = require(`./commands/${file}`);
   client.commands.set(command.name, command);
 });
