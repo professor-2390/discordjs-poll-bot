@@ -1,6 +1,6 @@
 module.exports = {
   name: 'ready',
-  run: (client) => {
+  run: () => {
     console.log('Connected');
   }
 }
