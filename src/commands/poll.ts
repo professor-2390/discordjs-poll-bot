@@ -3,7 +3,7 @@ import emojis from '../utility/emojis';
 import ms from 'ms';
 module.exports = {
   name: 'poll',
-  run: async(message, args) => {
+  run: async(message: Discord.Message, args: string[]) => {
     const time: string = args[0];
     const options: string[] = args.slice(1).join(' ').split('+');
     if(!/^[0-9]*s?|m|h|d|w/g.test(time) || !time) return;
@@ -29,6 +29,7 @@ module.exports = {
       options.slice(1).forEach((element, value) => {
         resultsEmbed.addField(`${value + 1}.) ${element}`, `${sendPollEmbed.reactions.cache.get(emojis[value]).count - 1} vote(s)`, true);
       });
+      await sendPollEmbed.reactions.removeAll();
       await sendPollEmbed.edit({embeds: [resultsEmbed]});
     }, ms(time) + (options.slice(1).length * 1000));
   }
